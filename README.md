@@ -116,11 +116,10 @@ flowchart LR
 ## 📸 Screenshots
 
 > Replace these placeholders with real screenshots — see the checklist below for exactly what to capture.
-
+> 
 | Custom App Home / Dashboard | Service Request Quick Form (LWC) | Generated PDF Report |
 |---|---|---|
-| ![Home](C:\Users\hP\Pictures\Screenshots)
-) | ![LWC Form](docs/screenshots/lwc-form.png) | ![PDF Report](docs/screenshots/pdf-report.png) |
+| ![Home](docs/screenshots/home.png) | ![LWC Form](docs/screenshots/lwc-form.png) | ![PDF Report](docs/screenshots/pdf-report.png) |
 
 **Screenshots to grab (put them in `docs/screenshots/`):**
 1. Custom App Home page with the equipment dashboard visible
