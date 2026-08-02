@@ -1,0 +1,2 @@
+<apex:page controller="ServiceReportController" action="{!generateAndSavePDF}"></apex:page>
+</apex:page>

@@ -1,0 +1,29 @@
+.request-form {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.form-section {
+    margin-bottom: 1rem;
+}
+
+.submit-btn {
+    --slds-c-button-brand-color-background: #0176d3;
+    --slds-c-button-brand-color-background-hover: #014486;
+    --slds-c-button-radius-border: 8px;
+    min-width: 220px;
+    transition: transform 0.15s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-1px);
+}
+
+lightning-card {
+    --slds-c-card-radius-border: 12px;
+    --slds-c-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+lightning-textarea, lightning-combobox {
+    --slds-c-input-radius-border: 8px;
+}

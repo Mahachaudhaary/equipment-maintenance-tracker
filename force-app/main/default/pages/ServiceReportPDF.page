@@ -1,0 +1,51 @@
+<apex:page controller="ServiceReportController" renderAs="pdf" applyBodyTag="false" applyHtmlTag="false" showHeader="false" standardStylesheets="false">
+<html>
+<head>
+<style>
+    @page { margin: 40px; }
+    body { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: #333; }
+    .header { background-color: #2c3e50; color: white; padding: 20px 30px; margin-bottom: 25px; }
+    .header h1 { margin: 0; font-size: 24px; font-weight: 600; }
+    .header p { margin: 4px 0 0; font-size: 12px; color: #bdc3c7; }
+    .section-title { font-size: 14px; font-weight: bold; color: #2c3e50; border-bottom: 2px solid #2c3e50; padding-bottom: 5px; margin: 20px 0 10px; }
+    table { width: 100%; border-collapse: collapse; }
+    tr:nth-child(even) { background-color: #f7f9fa; }
+    td { padding: 10px 12px; border-bottom: 1px solid #e1e4e8; }
+    .label { font-weight: bold; width: 180px; color: #555; }
+    .value { color: #111; }
+    .footer { margin-top: 40px; font-size: 10px; color: #999; text-align: center; border-top: 1px solid #e1e4e8; padding-top: 10px; }
+</style>
+</head>
+<body>
+    <div class="header">
+        <h1>Service Report</h1>
+        <p>{!serviceRequest.Name}</p>
+    </div>
+
+    <div class="section-title">Request Details</div>
+    <table>
+        <tr><td class="label">Equipment</td><td class="value">{!serviceRequest.Equipment__r.Name}</td></tr>
+        <tr><td class="label">Description</td><td class="value">{!serviceRequest.Description__c}</td></tr>
+        <tr><td class="label">Priority</td><td class="value">{!serviceRequest.Priority__c}</td></tr>
+        <tr><td class="label">Status</td><td class="value">{!serviceRequest.Status__c}</td></tr>
+    </table>
+
+    <div class="section-title">Assignment &amp; Timeline</div>
+    <table>
+        <tr><td class="label">Assigned Technician</td><td class="value">{!serviceRequest.Assigned_Technician__r.Name}</td></tr>
+        <tr><td class="label">Date Reported</td><td class="value"><apex:outputText value="{0,date,MMM d, yyyy}"><apex:param value="{!serviceRequest.Date_Reported__c}"/></apex:outputText></td></tr>
+        <tr><td class="label">Date Resolved</td><td class="value"><apex:outputText value="{0,date,MMM d, yyyy}"><apex:param value="{!serviceRequest.Date_Resolved__c}"/></apex:outputText></td></tr>
+    </table>
+
+    <div class="section-title">Resolution</div>
+    <table>
+        <tr><td class="label">Resolution Notes</td><td class="value">{!serviceRequest.Resolution_Notes__c}</td></tr>
+        <tr><td class="label">Cost</td><td class="value">$<apex:outputText value="{0,number,#,##0.00}"><apex:param value="{!serviceRequest.Cost__c}"/></apex:outputText></td></tr>
+    </table>
+
+    <div class="footer">
+        Equipment Maintenance &amp; Service Request Tracker — Auto-generated Service Report
+    </div>
+</body>
+</html>
+</apex:page>

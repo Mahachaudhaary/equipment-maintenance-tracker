@@ -1,0 +1,173 @@
+.dashboard-wrapper {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding: 1.5rem 1.75rem;
+    background: #f4f6f9;
+    border-radius: 0.75rem;
+}
+
+/* Header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.dashboard-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #16325c;
+    margin: 0;
+}
+
+.dashboard-subtitle {
+    color: #706e6b;
+    font-size: 0.875rem;
+    margin: 0.25rem 0 0 0;
+}
+
+.search-box {
+    width: 260px;
+}
+
+/* Stat cards */
+.stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.stat-card {
+    background: #ffffff;
+    border-radius: 0.75rem;
+    padding: 1.1rem 1.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #0176d3;
+}
+
+.stat-total { border-left-color: #0176d3; }
+.stat-repair { border-left-color: #e4741f; }
+.stat-warranty { border-left-color: #c23934; }
+.stat-cost { border-left-color: #04844b; }
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #16325c;
+    margin: 0;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #706e6b;
+    margin: 0.25rem 0 0 0;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+/* Card grid */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.equipment-card {
+    background: #ffffff;
+    border-radius: 0.75rem;
+    padding: 1.1rem 1.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.equipment-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+
+.equipment-name {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #16325c;
+}
+
+.equipment-category {
+    color: #706e6b;
+    font-size: 0.8rem;
+    margin: 0 0 0.75rem 0;
+}
+
+/* Status pills */
+.status-pill {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.status-operational {
+    background: #d5f5e3;
+    color: #04844b;
+}
+
+.status-repair {
+    background: #fde8d3;
+    color: #b25000;
+}
+
+.status-retired {
+    background: #eaeaea;
+    color: #5c5c5c;
+}
+
+.status-default {
+    background: #e3f1fc;
+    color: #0176d3;
+}
+
+/* Card detail rows */
+.card-detail-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    padding: 0.3rem 0;
+    border-top: 1px solid #f0f0f0;
+}
+
+.detail-label {
+    color: #706e6b;
+}
+
+.detail-value {
+    color: #16325c;
+    font-weight: 600;
+}
+
+.warranty-badge {
+    margin-top: 0.6rem;
+    background: #fef2f2;
+    color: #c23934;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.35rem 0.6rem;
+    border-radius: 0.4rem;
+    text-align: center;
+}
+
+.empty-state {
+    text-align: center;
+    color: #706e6b;
+    padding: 3rem 1rem;
+}

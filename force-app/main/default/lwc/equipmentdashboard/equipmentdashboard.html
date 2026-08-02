@@ -1,0 +1,92 @@
+<template>
+    <div class="dashboard-wrapper">
+
+        <!-- Header -->
+        <div class="dashboard-header">
+            <div>
+                <h1 class="dashboard-title">Equipment Overview</h1>
+                <p class="dashboard-subtitle">Live status across all tracked equipment</p>
+            </div>
+            <lightning-input
+                type="search"
+                placeholder="Search equipment..."
+                variant="label-hidden"
+                class="search-box"
+                onchange={handleSearch}>
+            </lightning-input>
+        </div>
+
+        <!-- Stat cards -->
+        <template if:true={dashboardData}>
+            <div class="stat-row">
+                <div class="stat-card stat-total">
+                    <p class="stat-value">{dashboardData.totalEquipment}</p>
+                    <p class="stat-label">Total Equipment</p>
+                </div>
+                <div class="stat-card stat-repair">
+                    <p class="stat-value">{dashboardData.underRepairCount}</p>
+                    <p class="stat-label">Under Repair</p>
+                </div>
+                <div class="stat-card stat-warranty">
+                    <p class="stat-value">{dashboardData.warrantyAlertCount}</p>
+                    <p class="stat-label">Warranty Alerts</p>
+                </div>
+                <div class="stat-card stat-cost">
+                    <p class="stat-value">{formattedTotalCost}</p>
+                    <p class="stat-label">Total Maintenance Cost</p>
+                </div>
+            </div>
+        </template>
+
+        <!-- Loading -->
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </template>
+
+        <!-- Error -->
+        <template if:true={error}>
+            <div class="slds-text-color_error slds-p-around_medium">
+                Couldn't load equipment data. Check that field API names match your org.
+            </div>
+        </template>
+
+        <!-- Cards grid -->
+        <template if:true={filteredEquipment.length}>
+            <div class="card-grid">
+                <template for:each={filteredEquipment} for:item="eq">
+                    <div key={eq.id} class="equipment-card">
+                        <div class="card-top">
+                            <span class="equipment-name">{eq.name}</span>
+                            <span class={eq.statusClass}>{eq.status}</span>
+                        </div>
+                        <p class="equipment-category">{eq.category}</p>
+
+                        <div class="card-detail-row">
+                            <span class="detail-label">Warranty Expiry</span>
+                            <span class="detail-value">{eq.formattedWarranty}</span>
+                        </div>
+                        <div class="card-detail-row">
+                            <span class="detail-label">Maintenance Cost</span>
+                            <span class="detail-value">{eq.formattedCost}</span>
+                        </div>
+                        <div class="card-detail-row">
+                            <span class="detail-label">Open Requests</span>
+                            <span class="detail-value">{eq.openRequestCount}</span>
+                        </div>
+
+                        <template if:true={eq.warrantyAlert}>
+                            <div class="warranty-badge">⚠ Warranty expiring soon</div>
+                        </template>
+                    </div>
+                </template>
+            </div>
+        </template>
+
+        <template if:false={hasEquipment}>
+            <template if:false={isLoading}>
+                <div class="empty-state">No equipment records found.</div>
+            </template>
+        </template>
+
+    </div>
+</template>
