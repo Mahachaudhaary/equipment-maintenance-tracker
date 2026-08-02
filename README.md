@@ -119,7 +119,8 @@ flowchart LR
 
 | Custom App Home / Dashboard | Service Request Quick Form (LWC) | Generated PDF Report |
 |---|---|---|
-| ![Home](docs/screenshots/home.png) | ![LWC Form](docs/screenshots/lwc-form.png) | ![PDF Report](docs/screenshots/pdf-report.png) |
+| ![Home](![Uploading image.png…]()
+) | ![LWC Form](docs/screenshots/lwc-form.png) | ![PDF Report](docs/screenshots/pdf-report.png) |
 
 **Screenshots to grab (put them in `docs/screenshots/`):**
 1. Custom App Home page with the equipment dashboard visible
